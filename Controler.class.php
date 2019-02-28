@@ -29,7 +29,7 @@ class Controler
 				case 'FormSignup':
 					$this->FormSignup();
 					break;
-
+					
 				case 'signup':
 					$this->signup($_GET['username'],$_GET['password']);
 					break;	
@@ -63,11 +63,11 @@ class Controler
 					break;
 
 				case "FormCellier":
-					$this->formAjoutCellier($_GET['User']);
+					$this->formAjoutCellier($_SESSION['UserID']);
 					break;
 
 				case "AjoutCell":
-					$this->AjoutCell($_GET['nom'],$_GET['username']);
+					$this->AjoutCell($_POST['nom'],$_SESSION['UserID']);
 					break;
 
 				case 'choissirCellier':
@@ -283,10 +283,10 @@ class Controler
 		include("vues/pied.php");     
 	}
 
-	private function AjoutCell()
+	private function AjoutCell($nom,$user)
 	{
 		$bte = new Bouteille();
-		$data = $bte->AjoutCellier($_GET['nom'],$_GET['username']);
+		$data = $bte->AjoutCellier($nom,$user);
 		$this->accueil();	
 	}	
 

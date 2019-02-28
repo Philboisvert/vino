@@ -240,7 +240,6 @@ function SupressionCellierParId(id){
     var result = confirm('Confirmé la suppression');
     if(result)
     {
-
         var ajaxRequest; // La variable pour Ajax
         ajaxRequest = new XMLHttpRequest();
 
